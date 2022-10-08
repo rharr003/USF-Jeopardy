@@ -8,12 +8,46 @@
 
 td {
   padding: 10px;
-  width: 100px;
+  width: 150px;
+  height: 100px;
+  color: white;
   text-align: center;
-  border: 1px solid black;
-  background-color: aliceblue;
+  border: 3px solid black;
+  background: linear-gradient(
+    90deg,
+    rgba(70, 3, 161, 1) 0%,
+    rgba(96, 4, 233, 1) 46%,
+    rgba(125, 6, 222, 1) 100%
+  );
+  border-radius: 10px;
 }
 
 .hidden {
   display: none;
+}
+
+.container-fluid {
+  text-align: center;
+}
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(3, 3, 4, 1) 0%,
+    rgba(14, 14, 22, 1) 50%,
+    rgba(45, 46, 46, 1) 100%
+  );
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+#spin-container {
+  transform: scale(4);
+  margin-top: 50px;
+}
+
+h1 {
+  color: white;
 }
