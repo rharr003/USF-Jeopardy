@@ -83,6 +83,7 @@ async function fillTable() {
     const categoryColumn = document.createElement("td");
     categoryColumn.id = category.title;
     categoryColumn.innerText = category.title.toUpperCase();
+    categoryColumn.style.textDecoration = "underline";
     thead.insertAdjacentElement("beforeend", categoryColumn);
   }
   $table.append(thead);
@@ -167,9 +168,3 @@ startButton.addEventListener("click", function () {
   fillTable();
   document.querySelector("#spin-container").classList.toggle("hidden");
 });
-
-const test = document.createElement("h1");
-
-test.dataset = [{ hello: 1, test: 2 }];
-
-console.log(test);
