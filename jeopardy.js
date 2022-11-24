@@ -1,4 +1,3 @@
-
 let categories = [];
 async function getCategoryIds() {
   const response = await axios.get(
@@ -14,8 +13,6 @@ async function getCategoryIds() {
   }
   return categories;
 }
-
-
 
 async function getCategory(catId) {
   const response = await axios.get(
@@ -34,7 +31,6 @@ async function getCategory(catId) {
   return obj;
 }
 
-
 const $table = $("#jeopardy");
 
 async function fillTable() {
@@ -45,6 +41,7 @@ async function fillTable() {
     categoryColumn.id = category.title;
     categoryColumn.innerText = category.title.toUpperCase();
     categoryColumn.style.textDecoration = "underline";
+    categoryColumn.style.fontSize = "1.25rem";
     thead.insertAdjacentElement("beforeend", categoryColumn);
   }
   $table.append(thead);
@@ -68,8 +65,6 @@ async function fillTable() {
   }
   document.querySelector("#spin-container").classList.toggle("hidden");
 }
-
-
 
 $table.on("click", "td.question", handleClick);
 
