@@ -1,31 +1,8 @@
-// categories is the main data structure for the app; it looks like this:
 
-//  [
-//    { title: "Math",
-//      clues: [
-//        {question: "2+2", answer: 4, showing: null},
-//        {question: "1+1", answer: 2, showing: null}
-//        ...
-//      ],
-//    },
-//    { title: "Literature",
-//      clues: [
-//        {question: "Hamlet Author", answer: "Shakespeare", showing: null},
-//        {question: "Bell Jar Author", answer: "Plath", showing: null},
-//        ...
-//      ],
-//    },
-//    ...
-//  ]
-
-/** Get NUM_CATEGORIES random category from API.
- *
- * Returns array of category ids
- */
 let categories = [];
 async function getCategoryIds() {
   const response = await axios.get(
-    "http://jservice.io/api/categories?count=100"
+    "https://jservice.io/api/categories?count=100"
   );
   const randomCategories = _.sampleSize(
     response.data.filter((value) => value.clues_count > 5),
@@ -38,21 +15,11 @@ async function getCategoryIds() {
   return categories;
 }
 
-/** Return object with data about a category:
- *
- *  Returns { title: "Math", clues: clue-array }
- *
- * Where clue-array is:
- *   [
- *      {question: "Hamlet Author", answer: "Shakespeare", showing: null},
- *      {question: "Bell Jar Author", answer: "Plath", showing: null},
- *      ...
- *   ]
- */
+
 
 async function getCategory(catId) {
   const response = await axios.get(
-    `http://jservice.io/api/category?id=${catId}`
+    `https://jservice.io/api/category?id=${catId}`
   );
   let { title, clues } = response.data;
   cluesNew = clues.map((value) => {
@@ -67,13 +34,7 @@ async function getCategory(catId) {
   return obj;
 }
 
-/** Fill the HTML table#jeopardy with the categories & cells for questions.
- *
- * - The <thead> should be filled w/a <tr>, and a <td> for each category
- * - The <tbody> should be filled w/NUM_QUESTIONS_PER_CAT <tr>s,
- *   each with a question for each category in a <td>
- *   (initally, just show a "?" where the question/answer would go.)
- */
+
 const $table = $("#jeopardy");
 
 async function fillTable() {
@@ -108,13 +69,7 @@ async function fillTable() {
   document.querySelector("#spin-container").classList.toggle("hidden");
 }
 
-/** Handle clicking on a clue: show the question or answer.
- *
- * Uses .showing property on clue to determine what to show:
- * - if currently null, show question & set .showing to "question"
- * - if currently "question", show answer & set .showing to "answer"
- * - if currently "answer", ignore click
- * */
+
 
 $table.on("click", "td.question", handleClick);
 
@@ -131,33 +86,6 @@ function handleClick(evt) {
     this.innerText = chosenCategory.cluesList[idx].answer;
   }
 }
-
-/** Wipe the current Jeopardy board, show the loading spinner,
- * and update the button used to fetch data.
- */
-
-function showLoadingView() {}
-
-/** Remove the loading spinner and update the button used to fetch data. */
-
-function hideLoadingView() {}
-
-/** Start game:
- *
- * - get random category Ids
- * - get data for each category
- * - create HTML table
- * */
-
-async function setupAndStart() {}
-
-/** On click of start / restart button, set up game. */
-
-// TODO
-
-/** On page load, add event handler for clicking clues */
-
-// TODO
 
 const startButton = document.querySelector("#start");
 
