@@ -22,6 +22,15 @@ td {
   border-radius: 10px;
 }
 
+td.question:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(70, 3, 111, 1) 0%,
+    rgba(96, 4, 188, 1) 46%,
+    rgba(125, 6, 177, 1) 100%
+  );
+}
+
 .hidden {
   display: none;
 }
@@ -45,7 +54,8 @@ table.center {
 
 #spin-container {
   transform: scale(4);
-  margin-top: 50px;
+  margin-top: 100px;
+  color: white;
 }
 
 h1 {
