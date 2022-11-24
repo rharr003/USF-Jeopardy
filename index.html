@@ -12,6 +12,12 @@
       href="https://fonts.googleapis.com/css?family=Copse&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="jeopardy.css" />
     <link
       rel="stylesheet"
@@ -19,16 +25,27 @@
     />
   </head>
   <body>
-    <header>
-      <h1>Jeopardy!</h1>
-      <button id="start">Start!</button>
-    </header>
+    <div class="container-fluid">
+      <header>
+        <h1>Jeopardy!</h1>
+        <button id="start" class="btn btn-primary">Start!</button>
+      </header>
 
-    <div id="spin-container" class="hidden">
-      <i class="fa fa-spin fa-spinner"></i>
+      <div id="spin-container" class="hidden">
+        <i class="fa fa-spin fa-spinner"></i>
+      </div>
+      <table id="jeopardy" class="center"></table>
     </div>
-
-    <table id="jeopardy"></table>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/jquery"></script>
     <script src="https://unpkg.com/lodash"></script>
